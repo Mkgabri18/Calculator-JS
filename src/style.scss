@@ -1,0 +1,93 @@
+$btn-digit: #333;
+$btn-active: #ff8533;
+$t-white: #f5f5f5;
+$t-black: #141414;
+$btn-dim: 60px;
+$display-dim: 80px;
+
+body {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: space-evenly;
+  font-family: "Roboto", sans-serif;
+  background: rgb(131, 58, 180);
+  background: linear-gradient(
+    90deg,
+    rgba(131, 58, 180, 1) 0%,
+    rgba(252, 176, 69, 1) 100%
+  );
+}
+
+td {
+  vertical-align: top; // allineamento del tasto =
+}
+
+button,
+input {
+  outline: none;
+}
+
+//--- Esconde flechas de input number
+/* Chrome, Safari, Edge, Opera */
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+input[type="number"] {
+  -moz-appearance: textfield;
+}
+//------------------------------------
+
+.calculator {
+  border-radius: 10px;
+  overflow: hidden;
+  box-shadow: 1px 1px 8px #000;
+  &__display {
+    .inputBox {
+      //width: 100%;
+      width: 240px;
+      border: 0;
+      padding: 0 20px;
+      box-sizing: border-box;
+      height: $display-dim;
+      font-size: 2em;
+      text-align: right;
+      background: #eee; //colore temp
+    }
+  }
+  &__keys {
+    .digit {
+      display: block;
+      width: $btn-dim;
+      height: $btn-dim;
+      font-size: 16px;
+      border: 0px;
+      background-color: $btn-digit;
+      color: $t-white;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &:hover {
+        background: $btn-active;
+        color: $t-black;
+        // &:focus {
+        //   background: darken($btn-active, 20%);
+        // }
+        &:active {
+          box-shadow: inset 0px 1px 5px 2px darken($btn-active, 20%);
+          cursor: pointer;
+        }
+      }
+      &.bigC {
+        height: $btn-dim * 2;
+      }
+      &.bigR {
+        width: $btn-dim * 2;
+      }
+    }
+  }
+}
