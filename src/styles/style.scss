@@ -1,0 +1,30 @@
+
+@import "config/mixins";
+@import "config/variables";
+@import "base/base";
+//@import "layout/layout";
+//@import "theme/theme";
+@import "components/header";
+@import "components/main";
+@import "components/footer";
+
+
+/* bodylayout */
+body {
+  display: grid;
+  min-height: 100vh;
+  grid-template-columns: repeat(12, 1fr);
+  grid-template-rows: 80px 1fr 100px;
+}
+
+header {
+  grid-column: 1/ span 12;
+}
+
+main {
+  grid-column: 1/ span 12;
+}
+
+footer {
+  grid-column: 1/ span 12;
+}

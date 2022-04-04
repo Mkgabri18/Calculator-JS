@@ -1,0 +1,65 @@
+$breakpoints: (
+  l: 960px,
+  m: 768px,
+  s: 425px,
+  xs: 320
+);
+
+
+// Paleta de colores
+:root {  
+  --bg-white: white;
+  --bg-footer: rgba(0,0,0, .8);
+  --t-white: white;
+  --t-smoke: whitesmoke;
+  --t-ghost: #e5e5e5;
+  --t-muted: #6c757d;
+  --t-black: black;
+  --t-light-black: rgba(0,0,0,.5);
+  --light-black: #2e2c2c;
+  --tomato-orange: tomato;
+  --tomato-dark-orange: #ff512f;
+  --icon-colors: #dd2476;
+  --bggradient: linear-gradient(to bottom, #dd2476, #ff512f);
+  --ligh-gray: rgba(255, 255, 255, .7);
+  --near-moon: linear-gradient(to top, #5ee7df 0%, #b490ca 100%);
+}
+
+
+// variables de capas ( z-index )
+:root {
+  --z-back: -10;
+  --z-normal: 1;
+  --z-tooltip: 10;
+  --z-fixed: 100;
+  --z-modal: 1000;
+}
+
+
+// varibles de typografia
+:root {
+  --h1-font-size: 2rem;
+  --h2-font-size: 1.5rem;
+  --h3-font-size: 1.25rem;
+  --body-font-size: .9rem;
+  --small-font-size: .75rem;
+  --banner-text-size: 2.4rem;
+  @include from(l) {
+    --h1-font-size: 2.5rem;
+    --h2-font-size: 1.75rem;
+    --h3-font-size: 1.5rem;
+    --body-font-size: 1rem;
+    --small-font-size: .8rem;
+    --banner-text-size: 1.6rem;
+  }
+}
+
+
+//variables de font
+:root {
+  --Snigle-font: 'Sniglet', cursive;
+  --Rubik: 'Rubik', cursive;
+  --Patua: 'Patua One', cursive;
+  --Lobster: 'Lobster', cursive;
+  --Acme: 'Acme', cursive;
+}

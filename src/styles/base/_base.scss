@@ -1,0 +1,26 @@
+// Aplico las reglas bases para los elementos html, como un reset
+
+*,*::before,::after {
+  box-sizing: border-box;
+}
+
+html, body {
+  margin: 0;
+  width: 100vw;
+  font-size: var(--body-font-size);
+}
+
+h1, h2, h3, h4, h5, h6 {
+  margin: 0;
+}
+
+ul {
+  margin-top: 0;
+  margin-bottom: 0;
+  padding-left: 0;
+  list-style: none;
+}
+
+img {
+  width: 100%;
+}

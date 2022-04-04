@@ -1,0 +1,15 @@
+//- layout.pug template page
+
+include ../mixins/_head.pug
+
+doctype html
+html(lang="es")
+	block head
+
+	body
+		block header	
+			include ../components/_header.pug
+		block content
+
+		block footer
+			include ../components/_footer.pug
