@@ -1,0 +1,8 @@
+- var keys = ["CE", "C", "/", "*", "7", "8", "9", "-", "4", "5", "6", "+", "1", "2", "3", "=", "0", "."]
+
+.calculator
+    .display
+        input#display.inputBox(type="text", value="", readonly)
+    .keyboard
+        each key in keys
+            button.key(type="button", value=key, class=key=="0" && "bigC" class=key=="=" && "bigR")= key
