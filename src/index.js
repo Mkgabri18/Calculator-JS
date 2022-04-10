@@ -27,12 +27,14 @@ function canc() {
 }
 
 function calculate() {
+    let d = display.value;
     if(op1 && operator && op2) {
         console.log("can calculate");
-        prevCalc.value = display.value
-        display.value = eval(display.value);
+        if(simbols.includes(d[d.length-1])) d = d.value.substring(0,d.value.length-1); //controll calculate truncate last operator 23-4+
+        prevCalc.value = d;
+        display.value = parseFloat(eval(d).toFixed(3)); //limit 3 decimal but trim zeros
         resetInternal() //reset operator
-        op1 = display.value; //prepare next calculation
+        op1 = d; //prepare next calculation
     } else {
         console.log("can not calculate");
     }
@@ -41,9 +43,12 @@ function calculate() {
 function operation(op) {
     let d = display.value;
     if(!op1) return false;
-    if(simbols.includes(d[d.length-1])) return op= //control not more operator
+    if(simbols.includes(d[d.length-1])) { //if last display value is operator change it with new operator
+        display.value = d.substring(0, d.length-1) + op;
+    } else {
+        display.value += op;
+    } //control not more operator
     operator = op;
-    display.value += op;
 
 }
 
