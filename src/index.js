@@ -1,12 +1,24 @@
 import style from "./styles/style.scss"
 
 const display = document.getElementById("display");
-let op1 = null;
-let op2 = null;
+const prevCalc = document.getElementById("prevCalc");
 
+let op1 = "";
+let op2 = "";
+let operator = null;
+
+//TODO prepare case to fix
+
+function resetInternal() {
+    op1="";
+    op2="";
+    operator=null;
+}
 
 function cancAll()  {
     display.value = "";
+    prevCalc.value = "";
+    resetInternal();
 }
 
 function canc() {
@@ -14,15 +26,33 @@ function canc() {
 }
 
 function calculate() {
-    
+    if(op1 && operator && op2) {
+        console.log("can calculate");
+        prevCalc.value = display.value
+        display.value = eval(display.value);
+        resetInternal() //reset operator
+        op1 = display.value; //prepare next calculation
+    } else {
+        console.log("can not calculate");
+    }
 }
 
-function operator() {
-    //TODO controll for operator before calculation
+function operation(op) {
+    //TODO controll for operator negative
+    if(!op1) return false;
+    operator = op;
+    display.value += op;
+
 }
 
-function add() {
-    operator();
+function getOperand(key) {
+    if(operator==null) {
+        op1+=key;
+    } else {
+        op2+=key;
+    }
+    console.log(op1, op2);
+    display.value += key
 }
 
 function keyClicked(e) {
@@ -30,12 +60,12 @@ function keyClicked(e) {
     switch(key) {
         case "CE": cancAll(); break;
         case "C": canc(); break;
-        case "/": divide(); break;
-        case "*": multiple(); break;
-        case "+": add(); break;
-        case "-": sub(); break;
+        case "+": operation(key); break;
+        case "-": operation(key); break;
+        case "*": operation(key); break;
+        case "/": operation(key); break;
         case "=": calculate(); break;
-        default: display.value += e.target.value;
+        default: getOperand(key);
     }
 }
 

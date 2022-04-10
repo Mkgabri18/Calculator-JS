@@ -2,7 +2,8 @@
 
 .calculator
     .display
-        input#display.inputBox(type="text", value="", readonly)
+        input#prevCalc.calc.prev(type="text", value="", readonly)
+        input#display.calc.inputBox(type="text", value="", readonly)
     .keyboard
         each key in keys
             button.key(type="button", value=key, class=key=="0" && "bigC" class=key=="=" && "bigR")= key

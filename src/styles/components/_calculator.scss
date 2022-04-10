@@ -11,14 +11,22 @@ $t-black: #141414;
 }
 
 .display {
-    .inputBox {
+    display: flex;
+    flex-direction: column;
+    .calc {
         width: 240px;
         border: 0;
         padding: 0 20px;
-        height: 80px;
-        font-size: 2rem;
         text-align: right;
         background: whitesmoke;
+    }
+    .prev {
+        height: 30px;
+        font-size: 1rem;
+    }
+    .inputBox {
+        height: 50px;
+        font-size: 2rem;
     }
 }
 
