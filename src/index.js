@@ -6,6 +6,7 @@ const prevCalc = document.getElementById("prevCalc");
 let op1 = "";
 let op2 = "";
 let operator = null;
+const simbols = ["+", "-", "*", "/"];
 
 //TODO prepare case to fix
 
@@ -38,8 +39,9 @@ function calculate() {
 }
 
 function operation(op) {
-    //TODO controll for operator negative
+    let d = display.value;
     if(!op1) return false;
+    if(simbols.includes(d[d.length-1])) return op= //control not more operator
     operator = op;
     display.value += op;
 
@@ -51,7 +53,7 @@ function getOperand(key) {
     } else {
         op2+=key;
     }
-    console.log(op1, op2);
+    console.log("op1: ",op1," op2: ", op2);
     display.value += key
 }
 
