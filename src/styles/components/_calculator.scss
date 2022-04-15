@@ -14,25 +14,32 @@ $t-black: #141414;
     display: flex;
     flex-direction: column;
     .calc {
-        width: 240px;
+        // width: 240px;
         border: 0;
         padding: 0 20px;
         text-align: right;
         background: whitesmoke;
-    }
-    .prev {
-        height: 30px;
-        font-size: 1rem;
-    }
-    .inputBox {
-        height: 50px;
-        font-size: 2rem;
+        &__prev {
+            height: 30px;
+            //font-size: 1rem;
+        }
+        &__inputBox {
+            height: 50px;
+            //font-size: 2rem;
+        }
     }
 }
 
 .keyboard {
     display: grid;
     grid-template-columns: repeat(4, 1fr);
+    &__advance {
+        display: none;
+        grid-template-columns: repeat(3, 1fr);
+    }
+    &__wrapper {
+        display: flex;
+    }
     .key {
         width: $btn-dim;
         height: $btn-dim;
@@ -41,6 +48,7 @@ $t-black: #141414;
         background-color: $btn-color;
         color: $t-white;
         cursor: pointer;
+        padding: 0;
         &:hover {
             background-color: $btn-active-color; 
         }

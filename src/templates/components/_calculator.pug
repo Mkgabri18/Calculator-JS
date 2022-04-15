@@ -1,9 +1,17 @@
 - var keys = ["CE", "C", "/", "*", "7", "8", "9", "-", "4", "5", "6", "+", "1", "2", "3", "=", "0", "."]
+- var keysAdv = ["X^2","X^3", "X^y", "X!", "sqrt", "YsqrtX", "e", "ln", "log", "sin", "cos", "tan", "1/X", "Rad", "PI"]
 
 .calculator
     .display
-        input#prevCalc.calc.prev(type="text", value="", readonly)
-        input#display.calc.inputBox(type="text", value="", readonly)
-    .keyboard
-        each key in keys
-            button.key(type="button", value=key, class=key=="0" && "bigC" class=key=="=" && "bigR")= key
+        input#prevCalc.calc.calc__prev(type="text", value="", readonly)
+        input#display.calc.calc__inputBox(type="text", value="", readonly)
+    .keyboard__wrapper
+        .keyboard.keyboard__advance
+            each key in keysAdv
+                button.key(type="button", value=key)= key
+        .keyboard
+            each key in keys
+                button.key(type="button", value=key, class=key=="0" && "bigC" class=key=="=" && "bigR")= key
+   
+
+input(type="checkbox").switchCalc
