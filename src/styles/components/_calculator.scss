@@ -66,3 +66,51 @@ $t-black: #141414;
         width: 100%;
     }
 }
+
+.switch {
+    width: 4rem;
+    .switchBox {
+        display: none;
+    }
+    .switchLabel {
+        width: 100%;
+        height: 2rem;
+        position: relative;
+        display: flex;
+        align-items: center;
+        background: $t-white;
+        border-radius: 20px;
+        box-shadow: 0 1px 5px $t-black;
+        cursor: pointer;
+        &::after {
+            content: "";
+            position: absolute;
+            width: 1.6rem;
+            height: 1.6rem;
+            border-radius: 50%;
+            background: grey;
+            left: 3px;
+            transition: all .4s ease;
+        }
+        &::before {
+            content: '';
+            width: 100%;
+            height: 100%;
+            border-radius: inherit;
+            background: $btn-active-color;
+            opacity: 0;
+            transition: all .4s ease; 
+        }
+    }
+    & input:checked {
+        & + label {
+            &::before {
+                opacity: 1;
+            }
+            &::after {
+                left: 56%;
+                background: $t-white;
+            }
+        }    
+    }
+}

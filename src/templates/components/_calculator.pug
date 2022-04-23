@@ -12,6 +12,7 @@
         .keyboard
             each key in keys
                 button.key(type="button", value=key, class=key=="0" && "bigC" class=key=="=" && "bigR")= key
-   
 
-input(type="checkbox").switchCalc
+.switch
+    input(type="checkbox")#switch.switchBox
+    label(for="switch").switchLabel

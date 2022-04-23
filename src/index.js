@@ -4,6 +4,7 @@ const $calculator = document.querySelector(".calculator");
 const display = document.getElementById("display");
 const prevCalc = document.getElementById("prevCalc");
 const $advance = document.querySelector(".keyboard__advance");
+const $switchKey = document.getElementById("switch");
 
 let op1 = "";
 let op2 = "";
@@ -54,6 +55,7 @@ function operation(op) {
 }
 
 function switchCalc(item) {
+    console.log("switch changed", item)
     if(item.checked) {
         $advance.style.display = 'grid';
     } else {
@@ -72,19 +74,21 @@ function getOperand(key) {
 }
 
 function keyClicked(e) {
-    if(!$calculator.contains(e.target)) return false
     let key = e.target.value;
 
-    switch(key) {
-        case "CE": cancAll(); break;
-        case "C": canc(); break;
-        case "+": operation(key); break;
-        case "-": operation(key); break;
-        case "*": operation(key); break;
-        case "/": operation(key); break;
-        case "=": calculate(); break;
-        case "on": switchCalc(e.target); break;
-        default: getOperand(key);
+    if($calculator.contains(e.target)) {
+        switch(key) {
+            case "CE": cancAll(); break;
+            case "C": canc(); break;
+            case "+": operation(key); break;
+            case "-": operation(key); break;
+            case "*": operation(key); break;
+            case "/": operation(key); break;
+            case "=": calculate(); break;
+            default: getOperand(key);
+        }
+    } else if($switchKey.contains(e.target)) {
+        switchCalc(e.target)
     }
 }
 
