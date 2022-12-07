@@ -101,9 +101,20 @@ function keyClicked(e) {
     } else if ($advanceKbd.contains(e.target) && op1) {
         console.log("adv keys", e.target)
         switch(key) {
-            case "pow2": paintResult(calculate('pow2', op1)); break;
-            case "pow3": paintResult(calculate('pow3', op1)); break;
+            case "pow2": paintResult(calculate(key, op1)); break;
+            case "pow3": paintResult(calculate(key, op1)); break;
             case "powx": operation(key); break;
+            case "fat":  paintResult(calculate(key, op1)); break;
+            case "sqrt": paintResult(calculate(key, op1)); break;
+            case "e": console.log("Work in progress"); break;
+            case "loge": paintResult(calculate(key, op1)); break;
+            case "log10": paintResult(calculate(key, op1)); break;
+            case "sin": paintResult(calculate(key, op1)); break;
+            case "cos": paintResult(calculate(key, op1)); break;
+            case "tan": paintResult(calculate(key, op1)); break;
+            case "frat": paintResult(calculate(key, op1)); break;
+            case "neg": paintResult(calculate(key, op1)); break;
+            case "pi": console.log("Work in progress"); break;
             default: break
         } 
     } else if($switchKey.contains(e.target)) {
