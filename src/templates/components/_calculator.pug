@@ -1,17 +1,38 @@
 - var keys = ["CE", "C", "/", "*", "7", "8", "9", "-", "4", "5", "6", "+", "1", "2", "3", "=", "0", "."]
-- var keysAdv = ["X^2","X^3", "X^y", "X!", "sqrt", "YsqrtX", "e", "ln", "log", "sin", "cos", "tan", "1/X", "Rad", "PI"]
+//- var keysAdv = ["X^2","X^3", "X^y", "X!", "√", "Y√X", "e", "ln", "log", "sin", "cos", "tan", "1/X", "+/-", "PI"]
+
+- 
+    var keysAdv = [
+        { text: "X^2", type: "pow", value:"pow2" },
+        { text: "X^3", type: "pow", value:"pow3" },
+        { text: "X^Y", type: "pow", value:"powx" },
+        { text: "X!", type: "def", value:"fat" },
+        { text: "√", type: "def", value:"sqrt" },
+        { text: "Y√X", type: "both", value:"sqrtxy" },
+        { text: "e", type: "def", value:"const" },
+        { text: "ln", type: "def", value:"loge" },
+        { text: "log", type: "def", value:"log" },
+        { text: "sin", type: "def", value:"sin" },
+        { text: "cos", type: "def", value:"cos" },
+        { text: "tan", type: "def", value:"tan" },
+        { text: "1/x", type: "both", value:"frat" },
+        { text: "+/-", type: "both", value:"neg" },
+        { text: "PI", type: "def", value:"const" },
+    ]
+
+include ../mixins/_button.pug
 
 .calculator
-    .display
+    .screen
         input#prevCalc.calc.calc__prev(type="text", value="", readonly)
-        input#display.calc.calc__inputBox(type="text", value="", readonly)
+        input#curCalc.calc.calc__inputBox(type="text", value="", readonly)
     .keyboard__wrapper
-        .keyboard.keyboard__advance
-            each key in keysAdv
-                button.key(type="button", value=key)= key
         .keyboard
             each key in keys
-                button.key(type="button", value=key, class=key=="0" && "bigC" class=key=="=" && "bigR")= key
+                +button(key, "def", key)
+        .keyboard.keyboard__advance
+            each key in keysAdv
+                +button(key.text, key.type, key.value)
 
 .switch
     input(type="checkbox")#switch.switchBox

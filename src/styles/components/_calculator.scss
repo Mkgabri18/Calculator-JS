@@ -10,24 +10,28 @@ $t-black: #141414;
     overflow: hidden;
 }
 
-.display {
+.screen {
     display: flex;
     flex-direction: column;
     .calc {
-        // width: 240px;
+        width: calc($btn-dim * 4);
         border: 0;
         padding: 0 20px;
         text-align: right;
         background: whitesmoke;
         &__prev {
             height: 30px;
-            //font-size: 1rem;
+            font-size: 1rem;
         }
         &__inputBox {
             height: 50px;
-            //font-size: 2rem;
+            font-size: 2rem;
         }
+        
     }
+    &--extend .calc {
+            width: calc($btn-dim * 7);
+        }
 }
 
 .keyboard {
@@ -39,6 +43,7 @@ $t-black: #141414;
     }
     &__wrapper {
         display: flex;
+        flex-direction: row-reverse;
     }
     .key {
         width: $btn-dim;

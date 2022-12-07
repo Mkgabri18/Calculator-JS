@@ -1,0 +1,18 @@
+//- button.pug mixins per head
+mixin button(key, type="def", val="")
+    - var cl = "key"
+    if key === '0'
+        - cl += " bigR"
+    else if key === '='
+        - cl += " bigC"
+
+    if type === "pow" 
+        button(class=cl type="button", value=val)= key.charAt(0)
+            sup= key.substring(1)
+    else if type === "both" 
+        button(class=cl type="button", value=val)
+            sup= key.charAt(0)
+            span= key.charAt(1)
+            sub= key.substring(2)
+    else
+        button(class=cl type="button", value=val)= key
